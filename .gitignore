@@ -1,1 +1,4 @@
 .env
+db.sqlite3
+polls/__pycache__
+project_test/__pycache__

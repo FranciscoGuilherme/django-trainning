@@ -1,11 +1,4 @@
-FROM python:3.9.6-alpine
-
-# =============================================
-# -----[Configuracoes de permissionamento]-----
-# =============================================
-
-RUN adduser -D python-user
-USER python-user
+FROM ubuntu:18.04
 
 # ==============================================
 # -----[Definicao do diretorio de trabalho]-----
@@ -17,20 +10,32 @@ WORKDIR /usr/src/app
 # -----[Definicao das variaveis de ambiente]-----
 # ===============================================
 
+ARG DEBIAN_FRONTEND=noninteractive
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-ENV PATH="/home/python-user/.local/bin:${PATH}"
 
-# =======================================
-# -----[Instalacao das dependencias]-----
-# =======================================
+# ==================================================
+# -----[Instalacao das dependencias do projeto]-----
+# ==================================================
 
-RUN /usr/local/bin/python -m pip install --upgrade pip
-COPY --chown=python-user:python-user requirements.txt requirements.txt
-RUN pip install --user -r requirements.txt
+RUN apt-get update
+RUN apt-get install \
+    build-essential \
+    libssl-dev \
+    python3-matplotlib \
+    python3-sklearn \
+    python3-pandas \
+    python3-numpy \
+    python3-scipy \
+    python3-sympy \
+    python3-nose \
+    python3-pip \
+    ipython3 \
+    -y
+RUN pip3 install -U Django
 
-# ========================
-# -----[Copy project]-----
-# ========================
+# =============================================
+# -----[Copia do projeto para o container]-----
+# =============================================
 
-COPY --chown=python-user:python-user . .
+COPY . .
