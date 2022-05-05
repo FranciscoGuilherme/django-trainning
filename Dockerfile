@@ -18,21 +18,15 @@ ENV PYTHONUNBUFFERED 1
 # -----[Instalacao das dependencias do projeto]-----
 # ==================================================
 
+COPY ./requirements.txt .
 RUN apt-get update
 RUN apt-get install \
-    build-essential \
-    libssl-dev \
-    python3-matplotlib \
-    python3-sklearn \
-    python3-pandas \
-    python3-numpy \
-    python3-scipy \
-    python3-sympy \
-    python3-nose \
     python3-pip \
-    ipython3 \
+    libjpeg-dev \
+    zlib1g-dev \
     -y
-RUN pip3 install -U Django
+RUN pip3 install -r requirements.txt
+RUN pip3 install -U setuptools
 
 # =============================================
 # -----[Copia do projeto para o container]-----

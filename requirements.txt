@@ -1,0 +1,11 @@
+Django
+Pillow
+nose
+numpy
+scipy
+sympy
+pandas
+ipython
+jupyter
+sklearn
+matplotlib
