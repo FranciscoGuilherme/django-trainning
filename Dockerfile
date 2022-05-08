@@ -24,6 +24,7 @@ RUN apt-get install \
     python3-pip \
     libjpeg-dev \
     zlib1g-dev \
+    libpq-dev \
     -y
 RUN pip3 install -r requirements.txt
 RUN pip3 install -U setuptools
