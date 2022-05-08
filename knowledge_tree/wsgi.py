@@ -1,5 +1,5 @@
 """
-WSGI config for project_test project.
+WSGI config for knowledge_tree project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project_test.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'knowledge_tree.settings')
 
 application = get_wsgi_application()

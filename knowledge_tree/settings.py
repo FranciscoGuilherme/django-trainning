@@ -33,7 +33,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'project_test.urls'
+ROOT_URLCONF = 'knowledge_tree.urls'
 
 TEMPLATES = [
     {
@@ -51,7 +51,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'project_test.wsgi.application'
+WSGI_APPLICATION = 'knowledge_tree.wsgi.application'
 
 
 # Database
