@@ -10,3 +10,4 @@ jupyter
 sklearn
 matplotlib
 psycopg2-binary
+djangorestframework
